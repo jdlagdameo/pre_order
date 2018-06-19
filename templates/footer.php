@@ -17,7 +17,7 @@
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+<script src="assets/js/bootstrap-datepicker.js"></script>
 <?php if (isset($js_file)) { ?>
     <script src="<?php echo $js_file . "?d=" . date("Y-m-d h:i:s"); ?>"></script>
 <?php } ?>

@@ -9,7 +9,7 @@
 
 include "config/db.config.php";
 
-class Functions
+class PreOrder
 {
     /**
      * Validate if string have value
@@ -29,6 +29,7 @@ class Functions
      */
     public function AddData($table, $data_arr)
     {
+        $data = [];
         $fields = "";
         $values = "";
         foreach ($data_arr as $key => $val) {
@@ -44,13 +45,30 @@ class Functions
 
             // prepare sql and bind parameters
             $stmt = $conn->prepare($query);
-
-            return $stmt->execute($data_arr);
+            $success = $stmt->execute($data_arr);
+            if ($success) {
+                $data["id"] = $conn->lastInsertId();
+            }
 
         } catch (PDOException $e) {
-            return false;
+            $success = false;
         }
 
+        return compact("success", "data");
         $conn = null;
+    }
+
+    public function summary($order_id)
+    {
+        $conn = new PDO("mysql:host=" . SERVER . ";dbname=" . DATABASE, USER, PASSWORD);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // select a particular user by id
+        $stmt = $conn->prepare("SELECT * FROM orders WHERE order_id=:order_id");
+        $stmt->execute(['order_id' => $order_id]);
+        $order = $stmt->fetch();
+        $conn = null;
+        return $order;
     }
 }
