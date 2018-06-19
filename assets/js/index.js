@@ -21,7 +21,7 @@
                     var title = (success?"Success":"Invalid Entry");
                     swal(title,response.message,(success?"success":"error"));
                     if(success){
-                        location.reload();
+                        // location.reload();
                     }
                 }
             });

@@ -45,11 +45,7 @@ class Functions
             // prepare sql and bind parameters
             $stmt = $conn->prepare($query);
 
-            foreach ($data_arr as $key => $val) {
-                $stmt->bindParam(":$key", $val);
-            }
-
-            return $stmt->execute();
+            return $stmt->execute($data_arr);
 
         } catch (PDOException $e) {
             return false;

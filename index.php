@@ -25,15 +25,15 @@ $js_file = "assets/js/index.js";
             <form>
                 <label for="name">First and Last Name</label>
                 <input name="name" id="name" class="form-control" type="text" placeholder="Enter Name"
-                       autocomplete="off"/>
+                       autocomplete="off" maxlength="150"/>
 
                 <label for="email">Email</label>
                 <input name="email" id="email" class="form-control" type="email" placeholder="Enter Email"
-                       autocomplete="off"/>
+                       autocomplete="off" maxlength="100"/>
 
                 <label for="date">Date</label>
                 <input name="date" id="date" class="form-control" type="text" placeholder="Select Date"
-                       autocomplete="off"/>
+                       autocomplete="off" maxlength="10"/>
 
 
                 <label for="bread"> #1 Bread </label>
