@@ -75,7 +75,7 @@ $js_file = "assets/js/index.js";
                     <label for="sandwich" class="col-sm-2 col-form-label"> #3 Sandwich Type</label>
                     <div class="col-sm-10">
                         <select name="sandwich" id="sandwich" class="form-control">
-                            <option value="">-- Select Sandwich --</option>
+                            <option value="">-- Select Sandwich Type --</option>
                         </select>
                     </div>
                 </div>
