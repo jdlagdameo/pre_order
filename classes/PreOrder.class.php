@@ -68,6 +68,10 @@ class PreOrder
         $stmt = $conn->prepare("SELECT * FROM orders WHERE order_id=:order_id");
         $stmt->execute(['order_id' => $order_id]);
         $order = $stmt->fetch();
+        if($order){
+            $order['date'] = date("M d, Y",strtotime($order['date']));
+        }
+
         $conn = null;
         return $order;
     }
